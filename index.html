@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{padding:0; margin:0; box-sizing: border-box;}
+        #layout{max-width: 900px; margin: auto;}
+        h1{display: none}
+        section{width:900px; position: relative; border: 1px solid transparent; height: 395px; overflow-x: hidden;  }
+        #slidearea{width: 300%; display:flex; position: absolute;  right:0; }
+        img{display:block; width:100%;}        
+        
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const area = document.getElementById("slidearea")
+            const img = document.querySelectorAll("#slidearea img")
+
+            
+            const move = () =>{
+               area.style.right = "-100%"
+               area.style.transition = "1s"
+
+               
+               const app = () =>{
+                area.prepend(area.lastElementChild)
+                area.style.right = 0;
+                area.style.transition = "none"
+                
+               }
+               
+               setTimeout(app, 1000)
+            
+            }
+            
+            setInterval(move,2500)
+            
+        })//end of script
+    </script>
+</head>
+<body>
+    <div id="layout">
+        <h1>mission</h1>
+        <section>
+            <div id="slidearea">
+                <img src="images/slide1.jpg" alt="img1">
+                <img src="images/slide2.jpg" alt="img2">
+                <img src="images/slide3.jpg" alt="img3">
+            </div>
+        </section>
+    </div>
+</body>
+</html>
